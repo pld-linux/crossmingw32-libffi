@@ -1,16 +1,13 @@
 Summary:	Foreign Function Interface library (cross MinGW32 version)
 Summary(pl.UTF-8):	Biblioteka Foreign Function Interface (wersja skrośna MinGW32)
 Name:		crossmingw32-libffi
-Version:	3.0.10
+Version:	3.0.11
 Release:	1
 License:	MIT-like
 Group:		Libraries
 Source0:	ftp://sourceware.org/pub/libffi/libffi-%{version}.tar.gz
-# Source0-md5:	79390673f5d07a8fb342bc09b5055b6f
+# Source0-md5:	f69b9693227d976835b4857b1ba7d0e3
 URL:		http://sources.redhat.com/libffi/
-BuildRequires:	autoconf >= 2.63
-BuildRequires:	automake
-BuildRequires:	libtool
 BuildRequires:	texinfo
 Requires:	crossmingw32-runtime
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -93,11 +90,6 @@ Biblioteka DLL Foreign Function Interface dla Windows.
 %setup -q -n libffi-%{version}
 
 %build
-%{__libtoolize}
-%{__aclocal} -I m4
-%{__autoconf}
-%{__autoheader}
-%{__automake}
 %configure \
 	--target=%{target} \
 	--host=%{target}
@@ -137,4 +129,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files dll
 %defattr(644,root,root,755)
-%{_dlldir}/libffi-5.dll
+%{_dlldir}/libffi-6.dll
