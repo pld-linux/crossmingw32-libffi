@@ -1,12 +1,12 @@
 Summary:	Foreign Function Interface library (cross MinGW32 version)
 Summary(pl.UTF-8):	Biblioteka Foreign Function Interface (wersja skrośna MinGW32)
 Name:		crossmingw32-libffi
-Version:	3.0.11
+Version:	3.0.12
 Release:	1
 License:	MIT-like
 Group:		Libraries
 Source0:	ftp://sourceware.org/pub/libffi/libffi-%{version}.tar.gz
-# Source0-md5:	f69b9693227d976835b4857b1ba7d0e3
+# Source0-md5:	da984c6756170d50f47925bb333cda71
 URL:		http://sources.redhat.com/libffi/
 BuildRequires:	texinfo
 Requires:	crossmingw32-runtime
