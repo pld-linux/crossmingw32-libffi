@@ -1,18 +1,19 @@
 Summary:	Foreign Function Interface library (cross MinGW32 version)
 Summary(pl.UTF-8):	Biblioteka Foreign Function Interface (wersja skrośna MinGW32)
 Name:		crossmingw32-libffi
-Version:	3.2.1
-Release:	2
+Version:	3.3
+Release:	1
 License:	MIT-like
 Group:		Libraries
 Source0:	ftp://sourceware.org/pub/libffi/libffi-%{version}.tar.gz
-# Source0-md5:	83b89587607e3eb65c70d361f13bab43
-URL:		http://sources.redhat.com/libffi/
+# Source0-md5:	6313289e32f1d38a9df4770b014a2ca7
+URL:		http://www.sourceware.org/libffi/
 BuildRequires:	texinfo
 Requires:	crossmingw32-runtime
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		no_install_post_strip	1
+%define		_enable_debug_packages	0
 
 %define		target			i386-mingw32
 %define		target_platform		i386-pc-mingw32
@@ -106,7 +107,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_dlldir}
-mv -f $RPM_BUILD_ROOT%{_prefix}/bin/*.dll $RPM_BUILD_ROOT%{_dlldir}
+%{__mv} $RPM_BUILD_ROOT%{_prefix}/bin/*.dll $RPM_BUILD_ROOT%{_dlldir}
 
 %if 0%{!?debug:1}
 %{target}-strip --strip-unneeded -R.comment -R.note $RPM_BUILD_ROOT%{_dlldir}/*.dll
@@ -120,10 +121,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc ChangeLog* LICENSE README
+%doc ChangeLog* LICENSE README.md
 %{_libdir}/libffi.dll.a
 %{_libdir}/libffi.la
-%{_libdir}/libffi-%{version}
+%{_includedir}/ffi.h
+%{_includedir}/ffitarget.h
 %{_pkgconfigdir}/libffi.pc
 
 %files static
@@ -132,4 +134,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files dll
 %defattr(644,root,root,755)
-%{_dlldir}/libffi-6.dll
+%{_dlldir}/libffi-7.dll
