@@ -9,6 +9,7 @@ Group:		Libraries
 Source0:	https://github.com/libffi/libffi/releases/download/v%{version}/libffi-%{version}.tar.gz
 # Source0-md5:	294b921e6cf9ab0fbaea4b639f8fdbe8
 URL:		http://www.sourceware.org/libffi/
+BuildRequires:	crossmingw32-gcc
 BuildRequires:	texinfo
 Requires:	crossmingw32-runtime
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
